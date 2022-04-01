@@ -1,0 +1,52 @@
+.project-list {
+    display: flex;
+    width: 100%;
+    margin: auto;
+    justify-content: space-between;
+    padding: 0 5%;
+    box-sizing: border-box;
+    z-index: 1;
+}
+.project {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 400px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.445);
+    backdrop-filter: blur(8px);
+    cursor: pointer;
+    transition-duration: 500ms;
+    animation: appear 300ms ease-out;
+    animation-iteration-count: 1;
+}
+.project header {
+    height: 50%;
+    border-radius: 20px 20px 0 0;
+}
+.project-details {
+    height: 50%;
+    background-color: white;
+    border-radius: 0 0 20px 20px;
+    padding: 0 5%;
+    box-sizing: border-box;
+}
+
+.project-title {
+    font-size: 3rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.project:hover {
+    background-color: rgba(48, 48, 48, 0.671);
+}
+
+@keyframes appear {
+    0% {
+        transform: scale(0.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}

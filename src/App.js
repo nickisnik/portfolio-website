@@ -1,6 +1,8 @@
 import BubbleWrapper from './components/BubbleWrapper';
 import './App.css';
-
+import Home from './components/Home';
+import Projects from './components/Projects';
+import {BorwserRouter, BrowserRouter, Link, Outlet, NavLink} from 'react-router-dom';
 
 function App() {
 
@@ -30,19 +32,14 @@ function App() {
         <button className='navbar-contact'>contact</button>
       </nav>
 
-    <header className='main'>
-      <div className='greeting'>
-        <span className='title'>Hi, I'm Nick</span>
-        <span className='details'>Self-taught web developer, business student, and weightlifting enthusiast.</span>
-      </div>
+    <Outlet />
 
-      <div className='control-panel'>
-        <div className='control-previous'>&lt;</div>
-        <div className='control-next'>&gt;</div>
-      </div>
-    </header>
-
+    <div className='control-panel'>
+            <NavLink to="/" className={({ isActive }) => (isActive ? "link-active" : "link")}><div className='control-previous'>Home</div></NavLink>
+            <NavLink to="/projects" className={({ isActive }) => (isActive ? "link-active" : "link")}><div className='control-next'>Projects</div></NavLink>
+        </div>
     </div>
+    
   );
 }
 
