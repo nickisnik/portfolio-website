@@ -1,3 +1,4 @@
+import React, { Component } from 'react';
 import BubbleWrapper from './components/BubbleWrapper';
 import './App.css';
 import Home from './components/Home';
