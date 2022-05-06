@@ -9,7 +9,7 @@ import Home from './components/Home'
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename='/'>
       <Routes>
 
         <Route path="/" element={<App />}>

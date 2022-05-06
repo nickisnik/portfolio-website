@@ -26,11 +26,12 @@
   width: 50px;
   border-radius: 50%;
   background: linear-gradient(250deg, var(--purple), var(--orange));
-  animation: appear 5s linear;
+  animation: bubblesAppear 1s linear; 
   animation-iteration-count: 1;
   transition-duration: 12s;
   transition-timing-function: ease-in-out;
   box-shadow: 0px 10px 13px -7px #000000;
+  transform: scale(1) translate(0, 0);
 }
 
 .bubble:hover {
@@ -74,16 +75,16 @@
 
 
 
-@keyframes appear {
+@keyframes bubblesAppear {
     0% {
-        transform: scale(0.1);
+      opacity: 0.9;
     }
 
     50% {
-        transform: translateX(20px);
+        /* transform: translate(20px, 0); */
     }
 
     100% {
-        transform: scale(1) translateX(0px);
+        opacity: 1;
     }
 }
