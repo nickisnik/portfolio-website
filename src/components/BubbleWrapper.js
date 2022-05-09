@@ -44,9 +44,9 @@ function BubbleWrapper(props) {
         let bubbleArr = [...bubbles];
         console.log(bubbleArr[targetBubble]);
         console.log('Animation start!')
-        let randomY = Math.floor(Math.random()*85 + 3);
+        let randomY = Math.floor(Math.random()*75 + 5); //was *85 + 3
         let randomX = Math.floor(Math.random()*88 + 3);
-        let randomScale = (Math.random()*1.6 + 0.7);
+        let randomScale = (Math.random()*1.8 + 0.8);
         let randomTranslateY = (randomY - parseInt(bubbleArr[targetBubble].top.split('vh')[0]))/randomScale;
         let randomTranslateX = (randomX - parseInt(bubbleArr[targetBubble].left.split('vw')[0]))/randomScale; 
         let random2 = Math.floor(Math.random()*89) + 2; 
