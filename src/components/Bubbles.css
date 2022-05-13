@@ -32,6 +32,7 @@
   transition-timing-function: ease-in-out;
   box-shadow: 0px 10px 13px -7px #000000;
   transform: scale(1) translate(0, 0);
+  cursor: pointer;
 }
 
 .bubble:hover {

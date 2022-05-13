@@ -6,8 +6,10 @@
     padding: 0 5%;
     box-sizing: border-box;
     z-index: 1;
+    /* pointer-events: none; */
 }
 .project {
+    pointer-events: all;
     display: flex;
     flex-direction: column;
     width: 300px;

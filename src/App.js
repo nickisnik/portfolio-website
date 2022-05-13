@@ -11,13 +11,19 @@ function App() {
   return (
     <div className="App">
 
-      <svg className='svg-blur' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" version="1.1">
+      <svg className='svg-blur' xmlns="http://www.w3.org/2000/svg" /* viewBox="0 0 600 600" */ version="1.1">
         <defs>
-            <filter id="goo" color-interpolation-filters="sRGB">
+            <filter id="goo" colorInterpolationFilters="sRGB">
                 <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
-                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 21 -9" result="cm" />
-                <feBlend/>
-          
+                <feColorMatrix
+                 in="blur"
+                 mode="matrix"
+                 values="
+                  1 0 0 0 0
+                  0 1 0 0 0
+                  0 0 1 0 0
+                  0 0 0 45 -15"
+                 result="goo" />
                 </filter>
         </defs>
       </svg>
