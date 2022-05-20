@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Bubbles.css'
 
-function BubbleWrapper(props) {
+function BubbleWrapper({bubbleOn}) {
 
     const [bubbles, setBubbles] = useState([]);
     const [startup, setStartup] = useState(0);
@@ -23,23 +23,9 @@ function BubbleWrapper(props) {
         setBubbles(bubbleArr)
     }, [])
 
-    // useEffect(() => {
-    //     console.log('started')
-    //     if (startup > 0 || bubbles.length === 0) {return}
-    //     let bubbleArr = [...bubbles];
-    //     bubbleArr.forEach((bubble) => {
-    //         /* bubble = {...bubble, transform: `scale(1) translate(0px, 0px)`} */
-            
-    //     })
-    //     console.log(bubbleArr)
-    //     setBubbles(bubbleArr)
-    //     setStartup(1)
-    //     console.log('finished')
-    // }, [bubbles])
-    
 
- /* e.target.id.split('')[1]) */
     function animEnd(e) {
+        if(!bubbleOn) {return}
         const targetBubble = parseInt(e.target.id);
         let bubbleArr = [...bubbles];
         console.log(bubbleArr[targetBubble]);

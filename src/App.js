@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import BubbleWrapper from './components/BubbleWrapper';
 import './App.css';
 import Home from './components/Home';
@@ -7,6 +7,7 @@ import {BorwserRouter, BrowserRouter, Link, Outlet, NavLink} from 'react-router-
 
 function App() {
 
+  const [bubbleOn, setBubbleOn] = useState(true);
 
   return (
     <div className="App">
@@ -28,7 +29,7 @@ function App() {
         </defs>
       </svg>
 
-      <BubbleWrapper/>
+      <BubbleWrapper bubbleOn={bubbleOn} />
 
       <div className='color-bar'>
         <span>Welcome to my website!</span>
