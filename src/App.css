@@ -226,16 +226,14 @@
 
 .control-panel {
   background-color: rgba(50, 50, 50, 0.5);
-  /* width: 30%; */
   border-radius: 8px;
-  /* background-color: rgb(255, 255, 255); */
   margin: auto auto 2rem auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   box-sizing: content-box;
   align-items: center;
   backdrop-filter: blur(5px);
-  outline: 1px solid rgb(255, 255, 255);
+  border: 1px solid rgb(255, 255, 255);
   opacity: 0;
   animation: appearNav 500ms linear 2s forwards;
   animation-iteration-count: 1;
@@ -249,18 +247,10 @@
   margin: 0;
   color: white;
   text-decoration: none;
- /*  width: 50%; */
   height: 100%;
   display: flex;
   transition-duration: 200ms;
 }
-
-/* .control-panel a:first-of-type {
-  border-radius: 20px 0 0 20px;
-}
-.control-panel a:last-of-type {
-  border-radius: 0 20px 20px 0;
-} */
 
 .link-active {
   background:white;
@@ -326,6 +316,19 @@
 }
 
 
+@media screen and (max-width: 700px) {
+  
+  
+  
+  .greeting .title {
+    font-size: 15vw;
+  }
+  
+  .greeting .details {
+    font-size: 1rem;
+  }
+  
+}
 @media screen and (max-width: 500px) {
   .App {
     justify-content: space-between;
@@ -348,6 +351,7 @@
 
   .control-panel{
     width: 90%;
+    margin: auto auto 12vh auto;
   }
 
   .control-panel a {
@@ -355,11 +359,11 @@
   }
 
   .greeting .title {
-    font-size: 4rem;
+    font-size: 15vw;
   }
 
   .greeting .details {
-    font-size: 1rem;
+    font-size: 3.5vw;
   }
 
   @keyframes panel-appear {

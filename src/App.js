@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="App">
 
-      <svg className='svg-blur' xmlns="http://www.w3.org/2000/svg" /* viewBox="0 0 600 600" */ version="1.1">
+      <svg className='svg-blur' color-interpolation-filters="sRGB" xmlns="http://www.w3.org/2000/svg" /* viewBox="0 0 600 600" */ version="1.1">
         <defs>
             <filter id="goo" colorInterpolationFilters="sRGB">
                 <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
@@ -40,7 +40,6 @@ function App() {
           <a href="https://github.com/nickisnik" target="_blank"><img className='contact-link' id='github' src="/GitHub-Mark-Light-32px.png"></img></a>
           <a href="https://www.linkedin.com/in/nik000/" target="_blank"><img className='contact-link' id='linkedin' src="/icons8-linkedin-96.png"></img></a>
         </div>
-        {/* <button className='navbar-contact'>contact</button> */}
       </nav>
 
     <Outlet />

@@ -5,20 +5,12 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    max-height: 100vh;
     z-index: 0; 
     filter: url('#goo');
+    -webkit-filter: url('#goo');
     overflow-y: hidden;
     overflow-x: hidden;
   }
-
-/* .color-bar2 {
-  width: 400px;
-  margin: 4px auto;
-  height: 35px;
-  background: linear-gradient(270deg, var(--purple), var(--orange));
-  border-radius: 8px;
-} */
 
 .bubble {
   position: absolute;
@@ -28,70 +20,9 @@
   background: linear-gradient(250deg, var(--purple), var(--orange));
   box-shadow: 0px 10px 13px -7px #000000;
   cursor: pointer;
-
-  /* animation: bubblesAppear 4s linear; 
-  animation-iteration-count: 1;
-  transition-duration: 12s;
-  transition-timing-function: ease-in-out;
-  transform: scale(1) translate(0, 0); */
 }
 
-/* .bubble:hover {
+ .bubble:hover {
     background: linear-gradient(250deg, white, var(--orange));
 }
 
-
-.bubble-wrapper :nth-child(2) {
-  transition-duration: 15s;
-  animation-duration: 3;
-}
-.bubble-wrapper :nth-child(3) {
-  transition-duration: 22s;
-  animation-duration: 7;
-}
-.bubble-wrapper :nth-child(4) {
-  transition-duration: 27s;
-  animation-duration: 5;
-}
-.bubble-wrapper :nth-child(5) {
-  transition-duration: 13s;
-  animation-duration: 2;
-}
-.bubble-wrapper :nth-child(6) {
-  transition-duration: 13s;
-  animation-duration: 8;
-}
-.bubble-wrapper :nth-child(7) {
-  transition-duration: 12s;
-}
-.bubble-wrapper :nth-child(8) {
-  transition-duration: 15s;
-}
-.bubble-wrapper :nth-child(9) {
-  transition-duration: 22s;
-}
-.bubble-wrapper :nth-child(10) {
-  transition-duration: 8s;
-  animation-duration: 20s;
-}
- */
-@keyframes bubbleToFrame {
-  to {
-    
-  }
-}
-
-
-@keyframes bubblesAppear {
-    0% {
-      opacity: 0;
-    }
-
-    50% {
-        /* transform: translate(20px, 0); */
-    }
-
-    100% {
-        opacity: 0.5;
-    }
-}
