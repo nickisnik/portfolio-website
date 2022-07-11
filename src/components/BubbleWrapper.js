@@ -1,60 +1,102 @@
 import React, { useEffect, useState } from 'react';
 import './Bubbles.css'
+import { motion, useAnimation } from 'framer-motion/dist/framer-motion'
+import { useRef } from 'react';
 
-function BubbleWrapper({bubbleOn}) {
 
-    const [bubbles, setBubbles] = useState([]);
-    const [startup, setStartup] = useState(0);
+const BubbleWrapper = () => {
+
+    const randomX = () => {
+        //const x = `${Math.floor(Math.random()* 90 + 5)}vw`
+        const x = Math.floor(Math.random() * (window.innerWidth - 100))
+        return x
+    }
+    const randomY = () => {
+        //const y = `${Math.floor(Math.random()* 90 + 5)}vh`
+        const y = Math.floor(Math.random() * (window.innerHeight - 100))
+        return y
+    }
+    const randomDuration = (start = false) => {
+        if(start) {
+            return Math.random() * 8 + 1.5
+        }
+        return Math.floor(Math.random() * 10 + 5)
+    }
+    const randomScale = () => {
+        return Math.random()*2.2 + 0.75
+    }
+
+
+    const bubbles = [useAnimation(), useAnimation(), useAnimation(), useAnimation(), useAnimation(), useAnimation(), useAnimation(), useAnimation(), useAnimation(), useAnimation()]
+   
+    const animFunction = (index, start) => {
+        if(start) {
+            bubbles[index].start({
+                x: randomX(),
+                y: randomY(),
+                transition: { /* ease: "easeOut",  */duration: randomDuration(true) }
+            })
+            return
+        }
+        bubbles[index].start({
+            x: randomX(),
+            y: randomY(),          
+            transition: { duration: randomDuration() },
+           
+        })
+    } 
+
+    const initial = (index) => {
+        if(index%2 === 0) {
+            return {
+                x: window.innerWidth + 200,
+                y: "50vh",
+                scale: randomScale(),
+                transition: {duration: 2}
+            } 
+        }
+        return {
+            x: -200,
+            y: "50vh",
+            scale: randomScale(),
+            transition: {duration: 2}
+        } 
+    }
   
-    
 
     useEffect(() => {
-        let bubbleArr = [];
+        // starts animations
+        bubbles.forEach((item, index) => animFunction(index, true))
 
-    for (let i = 0; i < 15; i++) {
-        let randomLeft = Math.floor(Math.random()*90 + 5);
-        let randomTop = Math.floor(Math.random()*90 + 5);
-        bubbleArr.push({left: randomLeft + 'vw', top: randomTop + 'vh', transform: `scale(0.5) translate(0px, 0px)`})
+        // restart in case of window resize
+        const restartAnimations = () => {
+            bubbles.forEach((item, index) => animFunction(index))
+        }
+        window.addEventListener('resize', restartAnimations)
 
-        /* let random = Math.floor(Math.random()*101);
-        let random2 = Math.floor(Math.random()*101);
-        bubbleArr.push({left: random + '%', top: random2 + '%'}) */
-    }
-        setBubbles(bubbleArr)
     }, [])
+    const constraintsRef = useRef(null);
 
 
-    function animEnd(e) {
-        if(!bubbleOn) {return}
-        const targetBubble = parseInt(e.target.id);
-        let bubbleArr = [...bubbles];
-        console.log(bubbleArr[targetBubble]);
-        console.log('Animation start!')
-        let randomY = Math.floor(Math.random()*75 + 5); //was *85 + 3
-        let randomX = Math.floor(Math.random()*88 + 3);
-        let randomScale = (Math.random()*1.8 + 0.8);
-        let randomTranslateY = (randomY - parseInt(bubbleArr[targetBubble].top.split('vh')[0]))/randomScale;
-        let randomTranslateX = (randomX - parseInt(bubbleArr[targetBubble].left.split('vw')[0]))/randomScale; 
-        let random2 = Math.floor(Math.random()*89) + 2; 
-        console.log('oy')
-        /* let randomWidth = Math.floor(Math.random()*101) + 40; */
-        /* bubbleArr[targetBubble] = {left: random + '%', top: random2 + '%', width: randomWidth, height: randomWidth}; */
-        bubbleArr[targetBubble] = {...bubbleArr[targetBubble], transform: `scale(${randomScale}) translate(${randomTranslateX}vw, ${randomTranslateY}vh)`, opacity: '1'};
-        console.log(randomTranslateX, randomTranslateY)
-        setBubbles(bubbleArr);
-    }
-    
 
-    const bubbleHTML = bubbles.map((item, index) => {
-        return <div className='bubble' key={index} onAnimationStart={animEnd} onAnimationEnd={(e) => {animEnd(e); console.log('Anim end')}} onTransitionEnd={(e) => {animEnd(e); console.log('transition end')}} style={bubbles[index]} id={index}></div>
+    const bubbleHTML = bubbles.map((bubble, i) => {
+        return (
+            <motion.div
+                key={i}
+                initial={initial(i)}
+                drag
+                dragConstraints={{top: 0, bottom: window.innerHeight - 100, left: 0, right: window.innerWidth - 100}}
+                custom={i}
+                className='bubble'
+                animate={bubbles[i]}
+                onAnimationComplete={() => {animFunction(i, false)}}
+                dragTransition={{ bounceStiffness: 600, bounceDamping: 70 }}
+                /* onDragEnd={() => setTimeout(() => animFunction(i), 2000)} */
+            />
+        )
     })
-
     return (
-        <div className='bubble-wrapper'>
-            <div className='color-bar2'></div>
-
-            
-            
+        <div className='bubble-wrapper' ref={constraintsRef}>               
             {bubbleHTML}
         </div>
     );

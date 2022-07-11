@@ -7,7 +7,6 @@ import {BorwserRouter, BrowserRouter, Link, Outlet, NavLink} from 'react-router-
 
 function App() {
 
-  const [bubbleOn, setBubbleOn] = useState(true);
 
   return (
     <div className="App">
@@ -29,22 +28,27 @@ function App() {
         </defs>
       </svg>
 
-      <BubbleWrapper bubbleOn={bubbleOn} />
+      <BubbleWrapper />
 
-      <div className='color-bar'>
+      {/* <div className='color-bar'>
         <span>Welcome to my website!</span>
-      </div>
+      </div> */}
 
       <nav className='navbar'>
-        <span className='navbar-logo'>logo</span>
-        <button className='navbar-contact'>contact</button>
+        <span className='navbar-logo'>nick</span>
+        <div className="navbar-links">
+          <a href="https://github.com/nickisnik" target="_blank"><img className='contact-link' id='github' src="/GitHub-Mark-Light-32px.png"></img></a>
+          <a href="https://www.linkedin.com/in/nik000/" target="_blank"><img className='contact-link' id='linkedin' src="/icons8-linkedin-96.png"></img></a>
+        </div>
+        {/* <button className='navbar-contact'>contact</button> */}
       </nav>
 
     <Outlet />
 
     <div className='control-panel'>
-            <NavLink to="/" className={({ isActive }) => (isActive ? "link-active" : "link")}><div className='control-previous'>Home</div></NavLink>
-            <NavLink to="/projects" className={({ isActive }) => (isActive ? "link-active" : "link")}><div className='control-next'>Projects</div></NavLink>
+            <NavLink to="/" className={({ isActive }) => (isActive ? "link-active" : "link")}><span className='control-text'>Home</span></NavLink>
+            <NavLink to="/projects" className={({ isActive }) => (isActive ? "link-active" : "link")}><span className='control-text'>Projects</span></NavLink>
+            <a href='https://www.linkedin.com/in/nik000/' target="_blank" className={({ isActive }) => (isActive ? "link-active" : "link")}><span className='control-text'>Contact</span></a>
         </div>
     </div>
     
