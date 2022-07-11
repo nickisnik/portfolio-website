@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route, Routes, HashRouter } from 'react-router-dom';
 import Projects from './components/Projects';
 import Home from './components/Home'
+import Contact from './components/Contact'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -15,6 +16,7 @@ ReactDOM.render(
         <Route path="/" element={<App />}>
           <Route path="/" element={<Home />}></Route>
           <Route path="projects" element={<Projects />} />
+          <Route path="contact" element={<Contact />} />
         </Route>
       </Routes>
 

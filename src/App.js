@@ -47,7 +47,7 @@ function App() {
     <div className='control-panel'>
             <NavLink to="/" className={({ isActive }) => (isActive ? "link-active" : "link")}><span className='control-text'>Home</span></NavLink>
             <NavLink to="/projects" className={({ isActive }) => (isActive ? "link-active" : "link")}><span className='control-text'>Projects</span></NavLink>
-            <a href='https://www.linkedin.com/in/nik000/' target="_blank" className={({ isActive }) => (isActive ? "link-active" : "link")}><span className='control-text'>Contact</span></a>
+            <NavLink to="/contact" className={({ isActive }) => (isActive ? "link-active" : "link")}><span className='control-text'>Contact</span></NavLink>
         </div>
     </div>
     
