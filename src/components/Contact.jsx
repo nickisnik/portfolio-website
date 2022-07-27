@@ -5,6 +5,7 @@ const Contact = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
+    const [isSent, setIsSent] = useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -13,7 +14,7 @@ const Contact = () => {
             email: email,
             message: message 
         })
-        .then(() => console.log('done:)'))
+        .then(() => setIsSent(true))
         .catch((err) => console.log(err))
         setName('');
         setEmail('')
@@ -33,7 +34,7 @@ const Contact = () => {
                     <input onChange={(e) => setName(e.target.value)} value={name} name="name" type="text" placeholder='NAME' />
                     <input required type="email" onChange={(e) => setEmail(e.target.value)} value={email} name="email" placeholder='EMAIL' />
                     <textarea onChange={(e) => setMessage(e.target.value)} value={message} name="textarea" id="textarea" placeholder='MESSAGE'></textarea>
-                    <button className='form-btn' type="submit">SEND</button>
+                    {isSent ?<span className='sent'>Sent <span className='tick'>✔</span></span> : <button className='form-btn' type="submit">SEND</button>}
                 </form>
             </div>
         </div>
