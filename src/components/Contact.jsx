@@ -26,14 +26,15 @@ const Contact = () => {
         <div className="form-wrapper">
             <div className="form-content">
                 <header className="contact-header">
-                    <span className='contact-title'>CONTACT<br/> ME</span>
+                    <span className='contact-title'>CONTACT ME</span>
+                    <img className='profile' src="/profile.jpeg" alt="Profile photo" />
                     <span className='contact-info'>TEL: 0783 2783 000</span>
                     <span className='contact-info'><a href="mailto:nikita.nikolenko@gmail.com">NIKITA.NIKOLENKO@GMAIL.COM</a></span>
                 </header>
                 <form onSubmit={handleSubmit} className='contact-form'>
                     <input onChange={(e) => setName(e.target.value)} value={name} name="name" type="text" placeholder='NAME' />
                     <input required type="email" onChange={(e) => setEmail(e.target.value)} value={email} name="email" placeholder='EMAIL' />
-                    <textarea onChange={(e) => setMessage(e.target.value)} value={message} name="textarea" id="textarea" placeholder='MESSAGE'></textarea>
+                    <textarea required onChange={(e) => setMessage(e.target.value)} value={message} name="textarea" id="textarea" placeholder='MESSAGE'></textarea>
                     {isSent ?<span className='sent'>Sent <span className='tick'>✔</span></span> : <button className='form-btn' type="submit">SEND</button>}
                 </form>
             </div>

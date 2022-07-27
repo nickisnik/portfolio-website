@@ -14,6 +14,7 @@
     border-radius: 15px;
     padding: 2px;
     animation: appearForm 500ms linear forwards;
+    
 }
 
 @keyframes appearForm {
@@ -30,14 +31,34 @@
     display: flex;
     background-color: rgb(29, 29, 29);
     border-radius: 12px;
-    padding: 4rem 3rem;
+    padding: 2.5rem;
     width: fit-content;
+    max-height: 70vh;
+    overflow-y: scroll;
     gap: 10vw;
+}
+
+.form-content::-webkit-scrollbar {
+    width: 0px; /* Mostly for vertical scrollbars */
+}
+.form-content::-webkit-scrollbar-thumb { /* Foreground */
+    background: #999;
+}
+.form-content::-webkit-scrollbar-track { /* Background */
+    background: #333;
 }
 
 .contact-header {
     display: flex;
     flex-direction: column;
+}
+
+.profile {
+    max-width: 200px;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 10%;
+    margin: 2rem 0 1rem 0;
 }
 .contact-title {
     background: -webkit-linear-gradient(-90deg,rgb(255, 255, 255), rgb(207, 207, 207));
@@ -49,7 +70,6 @@
     line-height: 2.8rem;
     font-weight: 500;
     letter-spacing: 0px;
-    margin-bottom: auto;
     text-align: left;
     width: fit-content;
 }
@@ -68,6 +88,12 @@
     text-transform: lowercase;
     text-decoration: none;
     border-bottom: 2px solid rgb(65, 65, 65);
+    
+}
+
+.contact-info a:hover {
+    color: rgb(196, 196, 196);
+    border-color: rgb(196, 196, 196);
 }
 
 .contact-form {
@@ -77,6 +103,8 @@
     color: white;
     font-size: 1.2rem;
     font-weight: 500;
+    margin-top: auto;
+    height: fit-content;
 }
 
 .contact-to {
@@ -98,6 +126,7 @@
     border: solid rgb(65, 65, 65);
     border-width: 0 0 2px 0;
     min-width: 250px;
+    
     padding: 0.2rem 5px;
     color: inherit;
     font-weight: inherit;
@@ -128,16 +157,60 @@
     color: inherit;
     border-radius: 20px;
     letter-spacing: 2px;
+    filter: brightness(0.8);
     background: linear-gradient(to right, rgb(234, 141, 20), purple);
 }
 
 .form-btn:hover {
-    outline: 2px solid white;
+    filter: brightness(1);
 }
 
+.sent {
+    font-size: calc(0.8em + 0.5rem);
+    margin-top: auto;
+    margin-left: auto;
+    opacity: 0;
+    animation: sentAppear 300ms linear 1s forwards;
+}
+
+@keyframes sentAppear {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.tick {
+    color: rgb(8, 159, 8);
+    font-weight: 900;
+}
 @media only screen and (max-width: 700px) {
     .form-content {
         flex-direction: column;
+        max-width: 80vw;
         padding: 2rem 5vw;
+        max-height: 60vh;
+    }
+    .form-wrapper {
+        margin: 10vh auto auto auto;
+    }
+    .form-content::-webkit-scrollbar {
+        width: 8px;
+        height: 100px; /* Mostly for vertical scrollbars */
+    }
+    .form-content::-webkit-scrollbar-thumb { /* Foreground */
+        background: linear-gradient(to top, rgb(234, 141, 20), purple);
+        border-radius: 15px;
+    }
+    .form-content::-webkit-scrollbar-track { /* Background */
+        background: rgb(10, 10, 10);
+        border-radius: 15px;
+        margin: 1rem;
+        height: 90px;
+    }
+    .form-content::-webkit-scrollbar-track-piece:end {
+        background: transparent;
+        
     }
 }

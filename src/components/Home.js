@@ -7,7 +7,7 @@ function Home(props) {
 
         <div className='greeting'>
             <span className='title'>Hi, I'm Nick</span>
-            <span className='details'>Self-taught web developer, science lover, and weightlifting enthusiast.</span>
+            <span className='details'>Your friendly neighbourhood web developer</span>
         </div>
 
         

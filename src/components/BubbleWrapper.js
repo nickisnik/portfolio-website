@@ -6,15 +6,11 @@ import { useRef } from 'react';
 
 const BubbleWrapper = () => {
 
-    const randomX = () => {
-        //const x = `${Math.floor(Math.random()* 90 + 5)}vw`
-        const x = Math.floor(Math.random() * (window.innerWidth - 100))
-        return x
+    const randomX = (safari = false) => {
+        return Math.floor(Math.random() * (window.innerWidth - 100))
     }
-    const randomY = () => {
-        //const y = `${Math.floor(Math.random()* 90 + 5)}vh`
-        const y = Math.floor(Math.random() * (window.innerHeight - 100))
-        return y
+    const randomY = (safari = false) => {
+        return Math.floor(Math.random() * (window.innerHeight - 100))
     }
     const randomDuration = (start = false) => {
         if(start) {
@@ -23,9 +19,8 @@ const BubbleWrapper = () => {
         return Math.floor(Math.random() * 10 + 5)
     }
     const randomScale = () => {
-        return Math.random()*2.2 + 0.75
+        return Math.random()*2.2 + 1
     }
-
 
     const bubbles = [useAnimation(), useAnimation(), useAnimation(), useAnimation(), useAnimation(), useAnimation(), useAnimation(), useAnimation(), useAnimation(), useAnimation()]
    
@@ -34,7 +29,7 @@ const BubbleWrapper = () => {
             bubbles[index].start({
                 x: randomX(),
                 y: randomY(),
-                transition: { /* ease: "easeOut",  */duration: randomDuration(true) }
+                transition: { duration: randomDuration(true) }
             })
             return
         }
@@ -62,7 +57,7 @@ const BubbleWrapper = () => {
             transition: {duration: 2}
         } 
     }
-  
+    
 
     useEffect(() => {
         // starts animations
@@ -77,7 +72,7 @@ const BubbleWrapper = () => {
     }, [])
     const constraintsRef = useRef(null);
 
-
+   
 
     const bubbleHTML = bubbles.map((bubble, i) => {
         return (
@@ -95,6 +90,8 @@ const BubbleWrapper = () => {
             />
         )
     })
+
+    
     return (
         <div className='bubble-wrapper' ref={constraintsRef}>               
             {bubbleHTML}

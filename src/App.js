@@ -14,7 +14,7 @@ function App() {
       <svg className='svg-blur' color-interpolation-filters="sRGB" xmlns="http://www.w3.org/2000/svg" /* viewBox="0 0 600 600" */ version="1.1">
         <defs>
             <filter id="goo" colorInterpolationFilters="sRGB">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                <feGaussianBlur in="SourceGraphic" stdDeviation="20" result="blur" />
                 <feColorMatrix
                  in="blur"
                  mode="matrix"
@@ -22,17 +22,13 @@ function App() {
                   1 0 0 0 0
                   0 1 0 0 0
                   0 0 1 0 0
-                  0 0 0 45 -15"
+                  0 0 0 45 -25"  // 45 -15
                  result="goo" />
                 </filter>
         </defs>
       </svg>
 
       <BubbleWrapper />
-
-      {/* <div className='color-bar'>
-        <span>Welcome to my website!</span>
-      </div> */}
 
       <nav className='navbar'>
         <span className='navbar-logo'>nick</span>

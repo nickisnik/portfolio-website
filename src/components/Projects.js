@@ -13,13 +13,13 @@ const Projects = () => {
         github: 'https://github.com/nickisnik/simple-unit'
     }, {
         name: 'Hoodify',
-        desc: 'A basic Next.JS E-commerce app with product pages and shopping cart functionality',
+        desc: 'A basic Next.JS E-commerce app with product pages and shopping cart functionality.',
         imgUrl: '/Hoodify_Screenshot.png',
         demo: 'https://hoodify-next.vercel.app/products',
         github: 'https://github.com/nickisnik/hoodify'
     }, {
         name: 'Pomodoro',
-        desc: 'Customizable Pomodoro timer app: set your work and break cycles. The timer keeps running even on minized tabs!',
+        desc: 'Customizable Pomodoro timer app: set your work and break cycles. The timer keeps running even on minimized tabs!',
         imgUrl: '/pomodoro.png',
         demo: 'https://pomodoro-sand.vercel.app/',
         github: 'https://github.com/nickisnik/pomodoro'
